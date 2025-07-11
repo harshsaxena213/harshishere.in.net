@@ -32,7 +32,7 @@ The logic for submitting contact forms is mostly handled by the backend.
 
 ---
 
-### 🧠 How It Works
+## 🧠 How It Works
 
 1. The user visits the contact page and fills out their:
    - **Name**
@@ -40,20 +40,27 @@ The logic for submitting contact forms is mostly handled by the backend.
    - **Message**
 
 2. Upon form submission:
-   - The data is sent securely via a `POST` request to the Django backend.
-   - The backend validates the data and generates a **unique reference number** using:
+   - Data is sent securely via a `POST` request to the Django backend.
+   - Input is validated and a **unique reference number** is generated using:
      ```python
      import uuid
      reference_id = str(uuid.uuid4())
      ```
 
 3. Two email notifications are sent using Django’s `send_mail()`:
-   - ✅ **To the site owner** – containing the user’s message, email, and reference number.
-   - 📩 **To the user** – a confirmation email with a thank-you message and the same reference number.
+   - ✅ **To the site owner** – with the user's details and reference ID
+   - 📩 **To the user** – a confirmation message including their reference ID
 
-4. The user is redirected to:
-   - ✅ A **thank-you page** if successful (`thankyou.html`)
-   - ❌ An **error page** if the email fails or the input is invalid (`error.html`)
+4. The submission is also **logged to `data.txt`** with:
+   - Date and time of submission
+   - Name
+   - Email
+   - Message
+   - Reference ID
+   ```python
+   import datetime
+   with open("data.txt", "a+") as file:
+       file.write(f"{datetime.datetime.now()} | {name} | {email} | {message} | {reference_id}\n")
 
 
 ## 💌 Contact Form Fields

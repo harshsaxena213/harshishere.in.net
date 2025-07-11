@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HarshIsHere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="web.png">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .content-wrapper {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(98, 0, 255, 0.3);
+      color: white;
+      text-align: center;
+      width: 90%;
+      max-width: 420px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 32px;
+      color: #fff;
+    }
+
+    p {
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    .divider {
+      margin: 0 10px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    #connect {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgb(98, 0, 255);
+      border-radius: 6px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(98, 0, 255, 0.5);
+    }
+
+    #connect:hover {
+      background-color: rgb(78, 0, 210);
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(98, 0, 255, 0.8);
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      #connect {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      .content-wrapper {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content-wrapper">
+    <h1>Hi, I’m Harshit</h1>
+    <p>
+      <span class="divider">|</span>
+      <span id="connect">Connect</span>
+      <span class="divider">|</span>
+    </p>
+  </div>
+
+  <script>
+    document.getElementById("connect").addEventListener("click", function () {
+      window.location.href = "/connect";
+    });
+  </script>
+
+</body>
+</html>

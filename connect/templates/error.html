@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error Occurred</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: black;
+    }
+
+    .content-wrapper {
+      text-align: center;
+      color: white;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    pre {
+      background: #222;
+      color: #f88;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 15px;
+      text-align: left;
+      max-width: 600px;
+      overflow-x: auto;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: rgb(98, 0, 255);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    a:hover {
+      background-color: rgb(80, 0, 210);
+    }
+  </style>
+</head>
+<body>
+  <div class="content-wrapper">
+    <h1 class="error-message">🚨 Something went wrong!</h1>
+    <p>{{ error_message }}</p>
+    {% if error_trace %}
+      <pre>{{ error_trace }}</pre>
+    {% endif %}
+    <a href="/">Back to Home</a>
+  </div>
+</body>
+</html>

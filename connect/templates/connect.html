@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connect Me</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .content-wrapper {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(98, 0, 255, 0.3);
+      color: white;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 28px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      text-align: left;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background-color: #111;
+      color: white;
+      font-size: 15px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: rgb(98, 0, 255);
+      box-shadow: 0 0 10px rgba(98, 0, 255, 0.6);
+      outline: none;
+    }
+
+    button {
+      padding: 12px;
+      background-color: rgb(98, 0, 255);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: rgb(78, 0, 210);
+      transform: translateY(-2px);
+    }
+
+    .success-message {
+      margin-top: 15px;
+      color: lightgreen;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="content-wrapper">
+    <h2>Contact Me</h2>
+    <form method="post">
+      
+      {% csrf_token %} 
+      <div>
+        <label for="id_name">Name</label>
+        <input type="text" name="name" maxlength="100" required id="id_name">
+      </div>
+
+      <div>
+        <label for="id_email">Email</label>
+        <input type="email" name="email" maxlength="320" required id="id_email">
+      </div>
+
+      <div>
+        <label for="id_message">Message</label>
+        <textarea name="message" cols="40" rows="6" required id="id_message"></textarea>
+      </div>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>
